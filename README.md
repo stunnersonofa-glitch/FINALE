@@ -1,4 +1,361 @@
-# FINALE
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BRICKY — Digital Services Hub | GAS</title>
+  <meta name="description" content="Bricky Digital Services — premium websites, branding, social setup and GAS deals." />
+  <style>
+    /* -------- Style A: Black & Gold (Luxury) -------- */
+    :root{
+      --bg:#070607;
+      --card:#0f0f10;
+      --muted:#a8a09a;
+      --gold:#ffd24d;
+      --accent:#ffdd73;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:1100px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.6);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#050505 0%, #0a0a0a 100%);
+      color:#eee;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px;}
+    header{display:flex;align-items:center;gap:18px;margin-bottom:30px}
+    .brand{
+      display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#ffb84d);box-shadow:0 6px 20px rgba(255,210,77,0.12);display:flex;align-items:center;justify-content:center;font-weight:700;color:#0b0b0b;font-size:20px;
+    }
+    h1{font-size:28px;margin:0;color:var(--gold);text-shadow:0 2px 8px rgba(255,210,77,0.08)}
+    .tag{color:var(--muted);margin-top:6px;font-size:14px}
+    .hero{
+      display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:center;margin-bottom:28px;
+    }
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.03)}
+    .hero-left p{color:var(--muted);margin-top:12px}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,var(--gold),#ffc75b);color:#0b0b0b;font-weight:700;text-decoration:none;box-shadow:0 8px 30px rgba(255,210,77,0.12);
+    }
+    .subtle{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:10px 14px;border-radius:10px;text-decoration:none}
+    /* Services grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    .service{padding:18px;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.02)}
+    .service h4{margin:0;color:var(--gold)}
+    .service p{color:var(--muted);font-size:14px;margin-top:8px}
+    /* Portfolio */
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .port{background:linear-gradient(180deg, #0b0b0b, #0f0f10);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .mock{height:160px;border-radius:10px;background:linear-gradient(120deg,#0f0f10,#141414);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .plan{background:linear-gradient(180deg,#0f0f10, #121212);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);text-align:center}
+    .plan h3{color:var(--gold);margin:0}
+    .plan .price{font-size:22px;color:#fff;margin-top:10px}
+    .plan ul{color:var(--muted);text-align:left;margin:12px 0;padding-left:18px}
+    /* Testimonials */
+    .test-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+    .test{background:var(--glass);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .quote{font-style:italic;color:var(--muted)}
+    /* Contact */
+    form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    input,textarea,select{background:#0a0a0a;border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:10px;color:#eee}
+    textarea{grid-column:1 / -1;min-height:120px}
+    .muted-sm{color:var(--muted);font-size:13px}
+    footer{margin-top:34px;color:var(--muted);text-align:center;padding:18px}
+    /* WhatsApp button */
+    .wa-btn{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,#25d366,#128c7e);color:white;padding:14px;border-radius:999px;display:flex;gap:10px;align-items:center;box-shadow:0 10px 30px rgba(37,211,102,0.16);z-index:999}
+    .badge{background:rgba(0,0,0,0.25);padding:6px 10px;border-radius:999px;color:var(--gold);font-weight:700}
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:16px}
+      .grid,.portfolio,.pricing{grid-template-columns:repeat(2,1fr)}
+      form{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .grid,.portfolio,.pricing{grid-template-columns:1fr}
+      .brand .logo{width:48px;height:48px}
+      .wrap{padding:16px;margin:20px auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">GAS</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <h1>BRICKY • Digital Services Hub</h1>
+            <div class="badge">CEO Infinity</div>
+          </div>
+          <div class="tag">Premium websites, branding & growth — Black & Gold edition</div>
+        </div>
+      </a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left card">
+        <h2 style="margin:0">Build your business. Build your legacy.</h2>
+        <p class="muted-sm">Fast websites, branding packs, e-commerce setups and WhatsApp funnels — professional results your customers trust. Launch in 24–72 hours.</p>
+
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#services">Start Your Project</a>
+          <a class="subtle" href="#pricing">View Pricing</a>
+        </div>
+
+        <div class="grid" style="margin-top:22px">
+          <div class="service">
+            <h4>24–72h Website Builds</h4>
+            <p>Starter, Business or Premium e-commerce. Fast builds, modern UX and mobile-first design.</p>
+          </div>
+          <div class="service">
+            <h4>Branding & Logos</h4>
+            <p>Brand packs with logo, color palette and social assets ready to use.</p>
+          </div>
+          <div class="service">
+            <h4>WhatsApp Automation</h4>
+            <p>Catalogs, auto replies, and templates — convert leads instantly.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin:0;color:var(--gold)">Quick Start Offer</h3>
+        <p class="muted-sm" style="margin-top:8px">Get a Starter website + Logo pack for <strong>$19</strong>. Limited spots weekly.</p>
+
+        <div style="margin-top:12px;display:flex;gap:10px">
+          <a class="btn" href="#contact">Request Now</a>
+          <a class="subtle" href="#portfolio">Portfolio</a>
+        </div>
+
+        <div style="margin-top:18px">
+          <div style="display:flex;gap:10px;align-items:center">
+            <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#ffd24d,#ffb84d);display:flex;align-items:center;justify-content:center;color:#080808;font-weight:800">BR</div>
+            <div>
+              <div style="font-weight:700">BRICKY • CEO</div>
+              <div class="muted-sm">Ready to scale your brand</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" style="margin-top:18px">
+      <h2 style="color:var(--gold)">Services</h2>
+      <div class="grid">
+        <div class="service card">
+          <h4>Starter Website</h4>
+          <p class="muted-sm">One-page responsive site with contact & WhatsApp — perfect for local businesses.</p>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <a class="btn" href="#contact">Order $19</a>
+          </div>
+        </div>
+        <div class="service card">
+          <h4>Business Website</h4>
+          <p class="muted-sm">Multi-page site, portfolio, blog, and email contact — ready for growth.</p>
+          <div style="margin-top:10px">
+            <a class="btn" href="#contact">Order $29</a>
+          </div>
+        </div>
+        <div class="service card">
+          <h4>Premium / E-commerce</h4>
+          <p class="muted-sm">Full store, payment setup, shipping options and support.</p>
+          <div style="margin-top:10px">
+            <a class="btn" href="#contact">Order $99</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" style="margin-top:26px">
+      <h2 style="color:var(--gold)">Portfolio — sample builds</h2>
+      <div class="portfolio">
+        <div class="port card">
+          <div class="mock">Gustavo Coffee — Demo</div>
+          <div style="margin-top:10px">
+            <strong style="color:var(--gold)">Gustavo Coffee</strong>
+            <div class="muted-sm">Café e-commerce • 24h build</div>
+          </div>
+        </div>
+
+        <div class="port card">
+          <div class="mock">SG Motors — Demo</div>
+          <div style="margin-top:10px">
+            <strong style="color:var(--gold)">SG Motors</strong>
+            <div class="muted-sm">Auto showroom • Catalog + WhatsApp</div>
+          </div>
+        </div>
+
+        <div class="port card">
+          <div class="mock">Health Lab — Demo</div>
+          <div style="margin-top:10px">
+            <strong style="color:var(--gold)">Health Lab</strong>
+            <div class="muted-sm">Clinic • Booking & contact</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" style="margin-top:26px">
+      <h2 style="color:var(--gold)">Pricing</h2>
+      <div class="pricing">
+        <div class="plan card">
+          <h3>Starter</h3>
+          <div class="price">$19</div>
+          <ul>
+            <li>1 page responsive</li>
+            <li>Contact & WhatsApp</li>
+            <li>24–48h delivery</li>
+          </ul>
+          <a class="btn" href="#contact">Buy</a>
+        </div>
+
+        <div class="plan card">
+          <h3>Business</h3>
+          <div class="price">$29</div>
+          <ul>
+            <li>3 pages</li>
+            <li>Portfolio + SEO basics</li>
+            <li>72h delivery</li>
+          </ul>
+          <a class="btn" href="#contact">Buy</a>
+        </div>
+
+        <div class="plan card">
+          <h3>Premium</h3>
+          <div class="price">$99</div>
+          <ul>
+            <li>Store or custom</li>
+            <li>Payments, shipping</li>
+            <li>1 week delivery</li>
+          </ul>
+          <a class="btn" href="#contact">Buy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="margin-top:26px">
+      <h2 style="color:var(--gold)">Testimonials</h2>
+      <div class="test-grid">
+        <div class="test card">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#ffd24d,#ffb84d);display:flex;align-items:center;justify-content:center;color:#040404;font-weight:800">A</div>
+            <div>
+              <div style="font-weight:700">Amira — Cafe Owner</div>
+              <div class="muted-sm">Nairobi</div>
+            </div>
+          </div>
+          <p class="quote" style="margin-top:10px">"Bricky turned our idea into a beautiful site in 24 hours. Sales increased within days."</p>
+        </div>
+
+        <div class="test card">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#ffd24d,#ffb84d);display:flex;align-items:center;justify-content:center;color:#040404;font-weight:800">S</div>
+            <div>
+              <div style="font-weight:700">Sam — Auto Dealer</div>
+              <div class="muted-sm">Kisumu</div>
+            </div>
+          </div>
+          <p class="quote" style="margin-top:10px">"Professional and fast. WhatsApp automation saved hours every day."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:26px">
+      <h2 style="color:var(--gold)">Contact & Request</h2>
+      <p class="muted-sm">Fill this form and we will reach out for a free quote. Or click the WhatsApp button to start chat.</p>
+
+      <!-- Replace action with your Formspree or endpoint -->
+      <form class="card" action="https://formspree.io/f/your-id" method="POST">
+        <input name="name" placeholder="Full name" required />
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="phone" placeholder="Phone / WhatsApp" />
+        <select name="service">
+          <option value="starter">Starter Website — $19</option>
+          <option value="business">Business Website — $29</option>
+          <option value="premium">Premium / Store — $99</option>
+          <option value="branding">Logo & Branding</option>
+        </select>
+        <textarea name="message" placeholder="Tell us about your project"></textarea>
+
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="btn" type="submit">Send Request</button>
+          <a class="subtle" href="mailto:hello@yourdomain.com">Email: hello@yourdomain.com</a>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Payments: PayPal / M-Pesa / Bank transfer. Replace payment links in code where labeled.</div>
+      </form>
+    </section>
+
+    <footer>
+      <div class="muted-sm">© <strong>BRICKY Digital Services</strong> — Built with faith & hustle. • <span style="color:var(--gold)">GAS</span></div>
+    </footer>
+  </div>
+
+  <!-- WhatsApp floating button (replace number below) -->
+  <a id="whatsapp" class="wa-btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,0.2))">
+      <path d="M20.5 3.5C18 1 14.8 0 11.4 0 5 0 .3 4.7.3 11.2c0 2 .5 3.9 1.4 5.6L0 24l7.6-2c1.6.9 3.5 1.4 5.7 1.4 6.5 0 11.2-4.7 11.2-11.2 0-3.4-1-6.6-3.5-9.1z" fill="#fff" opacity=".06"/>
+      <path d="M17.1 14.3c-.2-.1-1.1-.5-1.4-.6-.4-.1-.6-.2-.9.2-.3.4-1.1.6-1.4.7-.3.1-.5.1-.8-.2-1.6-1.9-2.6-3.7-2.9-4.2-.2-.3 0-.5.1-.6.1-.1.3-.3.6-.5.3-.2.3-.4.5-.7.1-.2 0-.4 0-.6 0-.1-.9-1.9-1.2-2.6-.3-.5-.6-.3-.9-.3-.7 0-1.5.1-2.2 1.1-.7 1-1.1 2.5-1.1 4.1 0 1.6.6 3.1 1.5 4.5 1 1.6 2.6 3.1 4.4 4.1 1.5.8 3.1 1 4.5.8 1.1-.2 2.6-1 2.8-1.9.2-.9.2-1.8.1-1.9-.1-.1-1.1.2-1.3.1z" fill="#25D366"/>
+    </svg>
+    <span style="font-weight:700">WhatsApp</span>
+  </a>
+
+  <script>
+    // === Replace these values ===
+    const WHATSAPP_NUMBER = "+2547XXXXXXXX"; // change me to your number
+    const PAYPAL_LINK = "https://www.paypal.com/paypalme/yourname"; // change to your payment url
+    const FORM_ENDPOINT = "https://formspree.io/f/your-id"; // change to your form endpoint
+    // =============================
+
+    // wire up contact form action replacement (in case user wants client side change)
+    document.querySelectorAll('form').forEach(f=>{
+      f.action = FORM_ENDPOINT;
+    });
+
+    // WhatsApp button link
+    const wa = document.getElementById('whatsapp');
+    wa.href = `https://wa.me/${WHATSAPP_NUMBER.replace(/\+/g,'')}`;
+
+    // small UX: scroll to contact when clicking Start / Buy
+    document.querySelectorAll('a[href="#contact"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // optional: quick pay modal (example)
+    function quickPay(link){
+      window.open(link, "_blank");
+    }
+
+    // Example: wire buy links to PayPal (if desired)
+    document.querySelectorAll('.plan .btn').forEach(b=>{
+      b.addEventListener('click', (e)=> {
+        e.preventDefault();
+        quickPay(PAYPAL_LINK);
+      });
+    });
+  </script>
+</body>
+</html># FINALE
 
 FINALE is a lightweight WebApp to view [LabVIEW](https://www.ni.com/en-in/shop/labview.html) code. FINALE stands for FINALE Is Not A LabVIEW Editor.
 
